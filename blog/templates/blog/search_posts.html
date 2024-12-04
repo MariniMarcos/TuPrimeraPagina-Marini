@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Buscar Post</h2>
+<form method="get" class="form-inline mt-3">
+    <input type="text" name="q" class="form-control mr-2" placeholder="Buscar posts...">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if results %}
+    <h3 class="mt-4">Resultados de la búsqueda:</h3>
+    <ul class="list-group mt-2">
+    {% for post in results %}
+        <li class="list-group-item">{{ post.title }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p class="mt-4">No se encontraron resultados</p>
+{% endif %}

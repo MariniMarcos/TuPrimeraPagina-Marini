@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Crear Post</h2>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    <h3>Post</h3>
+    {{ post_form.as_p }}
+    <h3>Autor</h3>
+    {{ author_form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}
