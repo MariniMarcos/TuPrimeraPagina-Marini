@@ -8,7 +8,14 @@
             <h5>{{ post.title }}</h5>
             <p>{{ post.content }}</p>
             <small>Autor: {{ post.author.name }}</small>
+            {% if user.is_authenticated and user == post.author %}
+                <a href="{% url 'blog:delete_post' post.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                <a href="{% url 'blog:edit_post' post.id %}" class="btn btn-warning btn-sm">Editar</a>
+            {% endif %}
         </li>
     {% endfor %}
+    {% if not posts %}
+        <p>No hay posts</p>
+    {% endif %}
 </ul>
 {% endblock %}

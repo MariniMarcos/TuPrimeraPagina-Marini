@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión Cerrada</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <div class="alert alert-success" role="alert">
+            <h1 class="alert-heading">¡Has cerrado sesión con éxito!</h1>
+            <p>Gracias por visitarnos. Esperamos verte pronto.</p>
+            <hr>
+            <a href="{% url 'login' %}" class="btn btn-primary mt-3">Volver a iniciar sesión</a>
+            <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Ir a la página principal</a>
+        </div>
+    </div>
+</body>
+</html>

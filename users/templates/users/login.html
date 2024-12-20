@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <style>
+            body {
+                background-image: url('https://webgradients.com/public/webgradients_png/021%20True%20Sunset.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        </style>
+        <h1 class="text-center">Iniciar Sesión</h1>
+        
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                Usuario o contraseña incorrectos. Intenta de nuevo.
+            </div>
+        {% endif %}
+        
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                <form method="post" class="text-center mt-4">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+           <strong> <a href="{% url 'register' %} ">¿No tienes cuenta? Regístrate aquí</a> </strong> 
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

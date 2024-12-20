@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Author, Post
 from .forms import AuthorForm, PostForm
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url='/users/login/')
 def index(request):
-    return redirect('list_posts')
+    return render(request, 'blog/index.html')
 
 def create_post(request):
     if request.method == 'POST':
@@ -31,3 +34,7 @@ def search_posts(request):
     query = request.GET.get('q')
     results = Post.objects.filter(title__icontains(query)) if query else []
     return render(request, 'blog/search_posts.html', {'results': results})
+
+def about(request):
+    return render(request, 'blog/about.html')
+

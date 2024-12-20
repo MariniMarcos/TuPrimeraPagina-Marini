@@ -1,17 +1,29 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}My Blog{% endblock %}</title>
+    <title>{% block title %}Nuestro blog{% endblock %}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'list_posts' %}">My Blog</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Nuestro Blog</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'list_posts' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_posts' %}">Listado de post</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'create_post' %}">Crear Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'search_posts' %}">Buscar Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">Sobre nosotros</a></li>
             </ul>
+            <p>Bienvenido <strong> {{ user.username }} </strong> </p>
+
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+            </form>
+        {% endif %}
         </div>
     </nav>
     <div class="container mt-4">
