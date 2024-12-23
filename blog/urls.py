@@ -9,4 +9,7 @@ urlpatterns = [
     path('search_posts/', views.search_posts, name='search_posts'),
     path('about/', views.about, name='about'),
     path('users/', include('users.urls')),
+    path('post/edit/<int:pk>/', views.edit_post, name='edit_post'),
+    path('detail_posts/<int:post_id>/', views.detail_posts, name='detail_posts'),
+    path('post/delete/<int:pk>/', views.delete_post, name='delete_post'),
 ]

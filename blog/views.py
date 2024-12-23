@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Author, Post
 from .forms import AuthorForm, PostForm
 from django.contrib.auth.decorators import login_required
@@ -38,3 +38,30 @@ def search_posts(request):
 def about(request):
     return render(request, 'blog/about.html')
 
+def edit_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        return redirect('list_posts')  # Redirigir si no es el autor.
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('list_posts')
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'blog/edit_post.html', {'form': form})
+
+def delete_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.user != post.author:
+        return redirect('list_posts')  # Redirigir si no es el autor.
+
+    post.delete()
+    return redirect('list_posts')
+
+
+def detail_posts(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'blog/detail_posts.html', {'post': post})

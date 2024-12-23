@@ -1,17 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+    h2 {
+        text-align: center;
+    }
+</style>
+
 <h2>Posts</h2>
 <ul class="list-group mt-3">
     {% for post in posts %}
-        <li class="list-group-item">
-            <h5>{{ post.title }}</h5>
-            <p>{{ post.content }}</p>
-            <small>Autor: {{ post.author.name }}</small>
-            {% if user.is_authenticated and user == post.author %}
-                <a href="{% url 'blog:delete_post' post.id %}" class="btn btn-danger btn-sm">Eliminar</a>
-                <a href="{% url 'blog:edit_post' post.id %}" class="btn btn-warning btn-sm">Editar</a>
-            {% endif %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <h5>{{ post.title }}</h5>
+                <p>{{ post.content }}</p>
+                <small>Autor: {{ post.author.name }}</small>
+                
+                <div class="mt-3">
+                    <a href="{% url 'detail_posts' post.id %}" class="btn btn-primary">Leer más</a>
+                </div>    
+            </div>
+            <div style="display: flex; flex-direction: column; padding-top: 1rem;">
+                <a style="margin-top: 1rem; padding: 0.3rem; font-size: 15px ; " href="{% url 'edit_post' post.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a style="margin-top: 1rem; padding: 0.3rem; font-size: 15px ; " href="{% url 'delete_post' post.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
         </li>
     {% endfor %}
     {% if not posts %}

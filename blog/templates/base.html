@@ -3,25 +3,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Nuestro blog{% endblock %}</title>
+    <title>{% block title %}GameZone{% endblock %}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'index' %}">Nuestro Blog</a>
+        <a class="navbar-brand" href="{% url 'index' %}">GameZone</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'list_posts' %}">Listado de post</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_posts' %}">Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'create_post' %}">Crear Post</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'search_posts' %}">Buscar Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'search_posts' %}">Buscar Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">Sobre nosotros</a></li>
             </ul>
-            <p>Bienvenido <strong> {{ user.username }} </strong> </p>
+            <p style="display: inline; font-size: x-large; padding-top: 7px;">Bienvenido <strong> {{ user.username }} </strong> </p>
 
             {% if user.is_authenticated %}
             <form method="post" action="{% url 'logout' %}" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                <button type="submit" class="btn ">
+                    <i class="fa fa-sign-out" style="font-size:36px; color: red;"></i>
+                </button>
             </form>
         {% endif %}
         </div>
@@ -34,3 +38,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+<footer class="bg-light text-center text-lg-start mt-4">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contacto</h5>
+                <p>
+                    Teléfono: +123 456 7890<br>
+                    Dirección: Villa Ballester, Buenos Aires, Argentina
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Síguenos</h5>
+                <a href="#" style="font-size: 30px; padding: 1rem;" class="fa fa-facebook"></a>
+                <a href="#" style="font-size: 30px; padding: 1rem;" class="fa fa-twitter"></a>
+                <a href="#" style="font-size: 30px; padding: 1rem;" class="fa fa-instagram"></a>
+                <a href="#" style="font-size: 30px; padding: 1rem;" class="fa fa-linkedin"></a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3 bg-dark text-white" style="font-size: 25px; padding: 0.5rem;">
+        © 2024 GameZone
+    </div>
+</footer>

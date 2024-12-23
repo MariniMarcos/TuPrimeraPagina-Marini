@@ -2,8 +2,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Acerca de nosotros</h1>
-    <p class="lead">Este es un proyecto de Django para crear un blog.</p>
+<div class="jumbotron container mt-5" style="display: flex; align-items: center; flex-direction: column ;">
+    <h1 class="display-4">Nuestro Equipo</h1>
+    <p class="lead">Somos dos amigos que coincidimos para hacer el curso de Python. Estamos muy contentos de hacer este curso y para nuestro proyecto utilizamos Django, Bootstrap y otras librerías para crear un blog de post sobre noticias gamer.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center" style="margin-top: 2rem; margin-right: 2rem;">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQF97XTCbkrk9w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1641324298748?e=1740614400&v=beta&t=D6AUeMotog4z965wOP1_W_Tw3B7jCBd4AUnbMU_aoY8" class="rounded-circle" alt="Amigo 1" width="150" height="150">
+                <h3>Marcos Marini</h3>
+            </div>
+            <div class="col-md-4 text-center" style="margin-top: 2rem; margin-left: 2rem;">
+                <img src="https://media.licdn.com/dms/image/v2/C4E03AQGmmAVuevkKpA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1589334040320?e=1740614400&v=beta&t=MCLZjL4d-ANgNbb5tLaT5Am6HGx5Si49wEdFTXTJzkA" class="rounded-circle" alt="Amigo 2" width="150" height="150">
+                <h3>Nicolas Brum</h3>
+            </div>
+        </div>
 </div>
+
+
 {% endblock %}

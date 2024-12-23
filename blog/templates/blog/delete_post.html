@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title
+                        text-center" style="font-family: 'Roboto', sans-serif;">¿Estás seguro de que deseas eliminar el post?</h2>
+                        <p class="card-text">{{ post.title }}</p>
+                        <form method="post" action="{% url 'blog:delete_post' post.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

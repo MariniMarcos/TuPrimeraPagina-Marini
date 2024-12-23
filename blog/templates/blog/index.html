@@ -1,8 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Bienvenidos a nuestro Blog</h1>
-    <p class="lead">Este es el inicio de nuestro Blog.</p>
+<div class="jumbotron text-center" style="background-image: url('https://webgradients.com/public/webgradients_png/171%20Mind%20Crawl.png'); background-size: cover; background-position: center; color: white;">
+    <h1 class="display-4">Bienvenidos a GameZone</h1>
+    <p class="lead">El lugar donde los fans de EA Sports encuentran las mejores noticias y novedades.</p>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="mb-4">Últimas Noticias</h2>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">FIFA 25: Lo que sabemos hasta ahora</h5>
+                    <p class="card-text">EA Sports promete revolucionar la experiencia del fútbol virtual con gráficos mejorados y nuevas mecánicas de juego. Descubre lo que viene en la próxima entrega.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Madden NFL 25: El modo franquicia renace</h5>
+                    <p class="card-text">El icónico modo franquicia recibe grandes actualizaciones. ¿Estás listo para gestionar tu equipo favorito?</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Consejos para dominar Apex Legends</h5>
+                    <p class="card-text">Aprende los mejores trucos y estrategias para convertirte en un campeón en los campos de batalla.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2 class="mb-4">Categorías</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">FIFA</a></li>
+                <li class="list-group-item"><a href="#">Madden NFL</a></li>
+                <li class="list-group-item"><a href="#">Apex Legends</a></li>
+                <li class="list-group-item"><a href="#">NHL</a></li>
+                <li class="list-group-item"><a href="#">Otros juegos</a></li>
+            </ul>
+
+            <h2 class="mt-5">Suscríbete</h2>
+            <p>Recibe las últimas noticias directamente en tu correo.</p>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="email" placeholder="tuemail@example.com">
+                </div>
+                <button type="submit" class="btn btn-success">Suscribirme</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
