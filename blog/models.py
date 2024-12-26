@@ -8,10 +8,13 @@ class Author(models.Model):
         return self.name
 
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)  
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='posts')
+    title = models.CharField(max_length=200)  # Add this line
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='post_images/', null=True, blank=True)
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

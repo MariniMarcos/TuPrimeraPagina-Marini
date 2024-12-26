@@ -5,16 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="font-family: 'Roboto', sans-serif; font-weight: 600;">
                         <h2 class="card-title text-center" style="font-family: 'Roboto', sans-serif;">Crear Post</h2>
-                        <form method="post" class="mt-3">
+                        <form method="post" class="mt-3" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <h3 class="text-center" style="font-family: 'Roboto', sans-serif; padding: 2rem;">Por favor completa los datos solicitados para crear un post</h3>
+                            <h4 class="text-center" style="font-family: 'Roboto', sans-serif; padding: 2rem;">Completar los datos solicitados para crear un post</h4>
                             {{ post_form.as_p }}
-                            <h3 class="text-center" style="font-family: 'Roboto', sans-serif;">Autor</h3>
                             {{ author_form.as_p }}
+                            <div class="form-group">
+                                <label for="created">Fecha de creación</label>
+                                <input type="date" class="form-control" id="created" name="created">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Crear post</button>
+                                <button style="margin-top: 2rem;" type="submit" class="btn btn-primary">Crear post</button>
                             </div>
                         </form>
                     </div>

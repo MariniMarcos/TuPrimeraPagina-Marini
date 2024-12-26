@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
-from django.contrib.auth.views import LoginView
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -9,7 +11,7 @@ urlpatterns = [
     path('search_posts/', views.search_posts, name='search_posts'),
     path('about/', views.about, name='about'),
     path('users/', include('users.urls')),
-    path('post/edit/<int:pk>/', views.edit_post, name='edit_post'),
+    path('edit_post/<int:pk>/', views.edit_post, name='edit_post'),
     path('detail_posts/<int:post_id>/', views.detail_posts, name='detail_posts'),
-    path('post/delete/<int:pk>/', views.delete_post, name='delete_post'),
-]
+    path('delete_post/<int:pk>/', views.delete_post, name='delete_post'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
